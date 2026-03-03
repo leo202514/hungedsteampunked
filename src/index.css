@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Pirata+One&family=UnifrakturMaguntia&display=swap');
+
+:root {
+  --gothic-font: 'Pirata One', serif;
+  --readable-font: 'Almendra', serif;
+  --ink-color: #3d2b1f; /* Dark brown ink color */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #dcb07a;
+  background-image:
+    radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.4) 100%),
+    url('/assets/parchment-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: var(--readable-font);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Aligns content to top */
+  overflow-x: hidden;
+}
+
+/* The Steampunk Executioner Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: 550px;
+  background-image: url('/assets/executioner.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Remove Bootstrap container backgrounds and blurs */
+.container,
+.container-fluid {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  z-index: 10;
+}
+
+/* Scroll Header Snapped to Top */
+.scroll-header {
+  background-image: url('/assets/header-scroll.png') !important;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-height: 160px;
+  width: 100%;
+  margin-top: 0px; /* Snaps to top */
+  padding: 0 120px !important;
+}
+
+/* Custom styled transparent button */
+.scroll-button {
+  font-family: var(--gothic-font);
+  background: transparent !important;
+  border: 1px solid var(--ink-color) !important;
+  color: var(--ink-color) !important;
+  padding: 5px 15px;
+  box-shadow: none !important;
+  transition: transform 0.2s;
+}
+
+.scroll-button:hover {
+  transform: scale(1.05);
+  background: rgba(61, 43, 31, 0.1) !important;
+}
+
+/* Title */
+.navbar-brand {
+  font-family: 'UnifrakturMaguntia', cursive !important;
+  font-size: 5rem !important;
+  color: var(--ink-color) !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Typewriter Keys */
+.typewriter-key {
+  background-image: url('/assets/typewriter-key.png') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent !important;
+  border: none !important;
+  font-family: var(--readable-font) !important;
+  font-weight: 700;
+  font-size: 2rem;
+  width: 90px !important;
+  height: 90px !important;
+  color: #e0e0e0;
+  text-shadow: 1px 1px 2px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.typewriter-key:disabled {
+  filter: grayscale(100%) brightness(40%);
+  opacity: 0.6;
+}
+
+/* Aligning gallows with word display */
+.drawing-container img {
+  width: 500px !important;
+  margin-top: 80px; /* Levels gallows with right column */
+  filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.3));
+}
