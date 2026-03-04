@@ -4,7 +4,7 @@ A Victorian industrial themed hangman game built with React and Bootstrap.
 
 ## Live Demo
 
-Play the game here: [https://hunged1.vercel.app/](https://hunged1.vercel.app/)
+Play the game here: [https://hungedsteampunked.vercel.app/](https://hungedsteampunked.vercel.app/)
 
 ## Rules of Engagement
 
