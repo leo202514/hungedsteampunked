@@ -63,9 +63,14 @@ body::before {
   min-height: 120px;
   width: 100%;
   margin-top: -10px;
-  padding: 0 5% !important;
+
+  /* Increased side padding to move items off the rollers */
+  padding: 0 12% !important;
+
   display: flex;
   align-items: center;
+  /* This ensures the button stays left and the title stays right */
+  justify-content: space-between;
 }
 
 .scroll-button {
@@ -86,6 +91,7 @@ body::before {
   font-family: 'UnifrakturMaguntia', cursive !important;
   font-size: clamp(2rem, 5vw, 4rem) !important;
   color: var(--ink-color) !important;
+  margin-right: 20px;
 }
 
 /* Responsive Gallows Drawing */
