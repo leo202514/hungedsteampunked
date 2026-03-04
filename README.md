@@ -2,6 +2,10 @@
 
 A Victorian industrial themed hangman game built with React and Bootstrap.
 
+## Live Demo
+
+Play the game here: [https://hunged1.vercel.app/](https://hunged1.vercel.app/)
+
 ## Rules of Engagement
 
 1. The computer selects a random mechanical term (e.g., AUTOMATON).

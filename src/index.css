@@ -97,8 +97,8 @@ body::before {
   font-family: var(--readable-font) !important;
   font-weight: 700;
   font-size: 2rem;
-  width: 90px !important;
-  height: 90px !important;
+  width: 85px !important;
+  height: 85px !important;
   color: #e0e0e0;
   text-shadow: 1px 1px 2px black;
   display: flex;
