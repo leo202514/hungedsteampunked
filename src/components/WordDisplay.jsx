@@ -2,19 +2,10 @@ import React from 'react';
 
 function WordDisplay({ word, guessedLetters, reveal = false }) {
   return (
-    <div className="d-flex gap-3 justify-content-center mb-5">
+    /* We use the word-container class here to tap into the responsive CSS */
+    <div className="d-flex gap-3 justify-content-center mb-5 word-container">
       {word.split('').map((letter, index) => (
-        <span
-          key={index}
-          style={{
-            borderBottom: '5px solid #3d2b1f',
-            minWidth: '50px',
-            fontSize: '4rem',
-            textAlign: 'center',
-            fontFamily: "'Almendra', serif",
-            fontWeight: 'bold',
-          }}
-        >
+        <span key={index}>
           <span
             style={{
               visibility:

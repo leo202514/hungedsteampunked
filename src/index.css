@@ -1,16 +1,19 @@
+/* Requirement #2: Attractive Styling & Custom Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Pirata+One&family=UnifrakturMaguntia&display=swap');
 
 :root {
   --gothic-font: 'Pirata One', serif;
   --readable-font: 'Almendra', serif;
-  --ink-color: #3d2b1f; /* Dark brown ink color */
+  --ink-color: #3d2b1f;
 }
 
+/* Reset and Base Styling */
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
   background-color: #dcb07a;
+  /* Ensure assets are in public/assets/ folder */
   background-image:
     radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.4) 100%),
     url('/assets/parchment-bg.png');
@@ -21,72 +24,90 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Aligns content to top */
+  justify-content: flex-start;
   overflow-x: hidden;
 }
 
-/* The Steampunk Executioner Overlay */
+/* The Steampunk Executioner Overlay - Scaled for Viewport */
 body::before {
   content: '';
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 400px;
-  height: 550px;
+  width: 25vw;
+  height: 40vh;
+  max-width: 400px;
   background-image: url('/assets/executioner.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom left;
   z-index: 1;
   pointer-events: none;
+  opacity: 0.8;
 }
 
-/* Remove Bootstrap container backgrounds and blurs */
+/* Requirement #9: Clean UI - Removing default Bootstrap boxes */
 .container,
 .container-fluid {
   background: transparent !important;
   backdrop-filter: none !important;
   border: none !important;
   box-shadow: none !important;
-  z-index: 10;
 }
 
-/* Scroll Header Snapped to Top */
+/* Header Scroll - Snapped to Top */
 .scroll-header {
   background-image: url('/assets/header-scroll.png') !important;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  min-height: 160px;
+  min-height: 120px;
   width: 100%;
-  margin-top: 0px; /* Snaps to top */
-  padding: 0 120px !important;
+  margin-top: -10px;
+  padding: 0 5% !important;
+  display: flex;
+  align-items: center;
 }
 
-/* Custom styled transparent button */
 .scroll-button {
   font-family: var(--gothic-font);
   background: transparent !important;
   border: 1px solid var(--ink-color) !important;
   color: var(--ink-color) !important;
   padding: 5px 15px;
-  box-shadow: none !important;
-  transition: transform 0.2s;
+  transition: all 0.3s ease;
 }
 
 .scroll-button:hover {
-  transform: scale(1.05);
-  background: rgba(61, 43, 31, 0.1) !important;
+  background: var(--ink-color) !important;
+  color: #dcb07a !important;
 }
 
-/* Title */
 .navbar-brand {
   font-family: 'UnifrakturMaguntia', cursive !important;
-  font-size: 5rem !important;
+  font-size: clamp(2rem, 5vw, 4rem) !important;
   color: var(--ink-color) !important;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Typewriter Keys */
+/* Responsive Gallows Drawing */
+.drawing-container img {
+  max-width: 100%;
+  width: 450px;
+  height: auto;
+  margin-top: 20px;
+  filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+/* Mystery Word Display - Scaled Down for Screen Fit */
+.word-container span {
+  border-bottom: 4px solid var(--ink-color);
+  min-width: clamp(25px, 4vw, 50px);
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
+  text-align: center;
+  font-family: var(--readable-font);
+  font-weight: bold;
+}
+
+/* Requirement #2: Typewriter Keys - Scaled Down */
 .typewriter-key {
   background-image: url('/assets/typewriter-key.png') !important;
   background-size: contain;
@@ -96,25 +117,35 @@ body::before {
   border: none !important;
   font-family: var(--readable-font) !important;
   font-weight: 700;
-  font-size: 2rem;
-  width: 85px !important;
-  height: 85px !important;
+  font-size: clamp(1rem, 2vw, 1.8rem);
+  width: clamp(50px, 7vw, 75px) !important;
+  height: clamp(50px, 7vw, 75px) !important;
   color: #e0e0e0;
   text-shadow: 1px 1px 2px black;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px;
+  margin: 2px;
 }
 
 .typewriter-key:disabled {
-  filter: grayscale(100%) brightness(40%);
-  opacity: 0.6;
+  filter: grayscale(100%) brightness(30%);
+  opacity: 0.5;
 }
 
-/* Aligning gallows with word display */
-.drawing-container img {
-  width: 500px !important;
-  margin-top: 80px; /* Levels gallows with right column */
-  filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.3));
+/* Scaling for Laptop/Tablet Screens */
+@media (max-width: 1400px) {
+  #root {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 1024px) {
+  #root {
+    transform: scale(0.8);
+  }
+  body::before {
+    display: none; /* Hide executioner on smaller screens to save space */
+  }
 }
